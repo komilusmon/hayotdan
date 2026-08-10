@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Hayotdan Hayotinggacha — Fozil Usmonqulov</title>
+
+  <meta name="description"
+        content="Fozil Usmonqulovning Hayotdan Hayotinggacha kitobi. Hayot, iymon, sevgi, oila, ota-ona, vatan, sabr va umid haqida she'rlar.">
+
+  <meta name="author" content="Fozil Usmonqulov">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0b0d0c;
+      --bg-soft: #111512;
+      --card: rgba(255,255,255,0.06);
+      --card-border: rgba(255,255,255,0.10);
+      --text: #f5f4ed;
+      --muted: #a8ada5;
+      --gold: #d6ad5c;
+      --gold-light: #efd38b;
+      --green: #708b70;
+      --shadow: 0 25px 80px rgba(0,0,0,.35);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Inter", sans-serif;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(214,173,92,.10), transparent 30%),
+        radial-gradient(circle at 80% 20%, rgba(112,139,112,.10), transparent 30%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* NAVBAR */
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      backdrop-filter: blur(18px);
+      background: rgba(11,13,12,.72);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+
+    .nav-inner {
+      max-width: 1150px;
+      margin: auto;
+      padding: 17px 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: "Playfair Display", serif;
+      font-size: 21px;
+      color: var(--gold-light);
+      font-weight: 600;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      font-size: 14px;
+      color: #d7dad3;
+      transition: .3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold-light);
+    }
+
+    .theme-btn {
+      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(255,255,255,.05);
+      color: white;
+      border-radius: 50%;
+      width: 38px;
+      height: 38px;
+      cursor: pointer;
+      font-size: 17px;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 100vh;
+      max-width: 1150px;
+      margin: auto;
+      padding: 150px 25px 100px;
+      display: grid;
+      grid-template-columns: 1fr 430px;
+      align-items: center;
+      gap: 80px;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      letter-spacing: 3px;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(52px, 7vw, 86px);
+      line-height: 1.03;
+      font-weight: 600;
+      letter-spacing: -2px;
+      margin-bottom: 25px;
+    }
+
+    .hero h1 span {
+      color: var(--gold-light);
+    }
+
+    .hero-description {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 17px;
+      margin-bottom: 35px;
+    }
+
+    .author {
+      color: #ddd;
+      margin-bottom: 32px;
+    }
+
+    .author strong {
+      color: var(--gold-light);
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+    }
+
+    .btn {
+      padding: 14px 23px;
+      border-radius: 9px;
+      font-size: 14px;
+      font-weight: 600;
+      transition: .3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #15120b;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold-light);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(214,173,92,.18);
+    }
+
+    .btn-outline {
+      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(255,255,255,.04);
+      color: white;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,.08);
+      transform: translateY(-3px);
+    }
+
+    /* BOOK */
+
+    .book-wrap {
+      display: flex;
+      justify-content: center;
+      perspective: 1200px;
+    }
+
+    .book {
+      width: 315px;
+      height: 465px;
+      position: relative;
+      border-radius: 5px 15px 15px 5px;
+      background:
+        linear-gradient(135deg, #1c291f, #0c130f 65%, #26372a);
+      box-shadow:
+        25px 25px 70px rgba(0,0,0,.55),
+        inset 5px 0 0 rgba(255,255,255,.04);
+      transform: rotateY(-8deg) rotateX(2deg);
+      transition: .7s ease;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    .book:hover {
+      transform: rotateY(0deg) rotateX(0deg) translateY(-8px);
+    }
+
+    .book::before {
+      content: "";
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(214,173,92,.5);
+      border-radius: 3px;
+    }
+
+    .book::after {
+      content: "";
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border: 1px solid rgba(214,173,92,.5);
+      border-radius: 50%;
+      left: 50%;
+      top: 43%;
+      transform: translate(-50%, -50%);
+      box-shadow:
+        0 0 0 8px rgba(214,173,92,.04),
+        0 0 0 18px rgba(214,173,92,.025);
+    }
+
+    .book-content {
+      position: absolute;
+      inset: 45px 30px;
+      text-align: center;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .book-small {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: #c9b889;
+    }
+
+    .book-title {
+      font-family: "Playfair Display", serif;
+      font-size: 39px;
+      line-height: 1.1;
+      color: #f3e5bd;
+    }
+
+    .book-author {
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: #bdb8a4;
+    }
+
+    /* SECTIONS */
+
+    section {
+      max-width: 1050px;
+      margin: auto;
+      padding: 110px 25px;
+    }
+
+    .section-label {
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 11px;
+      font-weight: 700;
+      margin-bottom: 13px;
+    }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      max-width: 700px;
+      margin-bottom: 45px;
+    }
+
+    /* EXCERPT */
+
+    .excerpt-section {
+      max-width: 900px;
+    }
+
+    .quote-card {
+      position: relative;
+      padding: 60px 65px;
+      border: 1px solid var(--card-border);
+      background: linear-gradient(
+        145deg,
+        rgba(255,255,255,.07),
+        rgba(255,255,255,.025)
+      );
+      border-radius: 20px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .quote-card::before {
+      content: "“";
+      position: absolute;
+      right: 30px;
+      top: -25px;
+      font-family: Georgia, serif;
+      font-size: 180px;
+      color: rgba(214,173,92,.08);
+    }
+
+    blockquote {
+      position: relative;
+      z-index: 2;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(23px, 3vw, 31px);
+      line-height: 1.7;
+      color: #eeeadd;
+    }
+
+    .quote-source {
+      position: relative;
+      z-index: 2;
+      margin-top: 25px;
+      color: var(--gold);
+      font-size: 13px;
+    }
+
+    /* THEMES */
+
+    .theme-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-top: 35px;
+    }
+
+    .theme-card {
+      padding: 27px;
+      border-radius: 15px;
+      background: var(--card);
+      border: 1px solid var(--card-border);
+      transition: .35s;
+    }
+
+    .theme-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(214,173,92,.3);
+      background: rgba(255,255,255,.08);
+    }
+
+    .theme-icon {
+      font-size: 25px;
+      margin-bottom: 14px;
+    }
+
+    .theme-card h3 {
+      font-family: "Playfair Display", serif;
+      font-size: 21px;
+      margin-bottom: 8px;
+    }
+
+    .theme-card p {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* ABOUT */
+
+    .about {
+      display: grid;
+      grid-template-columns: .8fr 1.2fr;
+      gap: 65px;
+      align-items: center;
+    }
+
+    .author-card {
+      min-height: 330px;
+      border-radius: 20px;
+      background:
+        radial-gradient(circle at 50% 35%, rgba(214,173,92,.17), transparent 32%),
+        linear-gradient(145deg, #18231b, #0c110e);
+      border: 1px solid var(--card-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .author-symbol {
+      width: 130px;
+      height: 130px;
+      border: 1px solid rgba(214,173,92,.5);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: "Playfair Display", serif;
+      font-size: 52px;
+      color: var(--gold-light);
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 18px;
+    }
+
+    .author-quote {
+      border-left: 2px solid var(--gold);
+      padding-left: 18px;
+      margin-top: 25px;
+      color: #e7e1cf !important;
+      font-family: "Playfair Display", serif;
+      font-size: 19px;
+    }
+
+    /* DOWNLOAD */
+
+    .download-box {
+      text-align: center;
+      padding: 80px 30px;
+      border-radius: 25px;
+      background:
+        radial-gradient(circle at center, rgba(214,173,92,.13), transparent 45%),
+        rgba(255,255,255,.04);
+      border: 1px solid var(--card-border);
+    }
+
+    .download-box .section-title {
+      margin-bottom: 15px;
+    }
+
+    .download-box p {
+      color: var(--muted);
+      margin: auto auto 30px;
+      max-width: 600px;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,.07);
+      padding: 35px 25px;
+      text-align: center;
+      color: #747a73;
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: #a7a999;
+    }
+
+    /* LIGHT MODE */
+
+    body.light {
+      --bg: #f5f1e7;
+      --bg-soft: #fffdf8;
+      --card: rgba(0,0,0,.035);
+      --card-border: rgba(0,0,0,.10);
+      --text: #1b211d;
+      --muted: #687067;
+      --gold: #a97b29;
+      --gold-light: #8b641f;
+    }
+
+    body.light nav {
+      background: rgba(245,241,231,.82);
+    }
+
+    body.light .nav-links a,
+    body.light .btn-outline {
+      color: #242923;
+    }
+
+    body.light .theme-btn {
+      color: #222;
+    }
+
+    body.light blockquote {
+      color: #34382f;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 850px) {
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 60px;
+      }
+
+      .hero-description {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .buttons {
+        justify-content: center;
+      }
+
+      .theme-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .hero {
+        padding-top: 120px;
+      }
+
+      h1 {
+        font-size: 51px;
+      }
+
+      .book {
+        width: 270px;
+        height: 400px;
+      }
+
+      .book-title {
+        font-size: 33px;
+      }
+
+      .quote-card {
+        padding: 35px 27px;
+      }
+
+      .theme-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 80px 20px;
+      }
+    }
+
+    /* ANIMATION */
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: .8s ease;
+    }
+
+    .reveal.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <nav>
+    <div class="nav-inner">
+
+      <a href="#" class="logo">
+        Hayotdan Hayotinggacha
+      </a>
+
+      <div class="nav-links">
+        <a href="#kitob">Kitob</a>
+        <a href="#parcha">Parcha</a>
+        <a href="#mavzular">Mavzular</a>
+        <a href="#muallif">Muallif</a>
+        <a href="#yuklab-olish">Yuklab olish</a>
+      </div>
+
+      <button class="theme-btn" id="themeBtn" aria-label="Rejimni almashtirish">
+        ☾
+      </button>
+
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+
+  <main>
+
+    <section class="hero" id="kitob">
+
+      <div class="hero-text reveal">
+
+        <div class="eyebrow">
+          She'riy to'plam · 2026
+        </div>
+
+        <h1>
+          Hayotdan<br>
+          <span>Hayotinggacha</span>
+        </h1>
+
+        <p class="hero-description">
+          Hayotning turli qirralari, inson qalbi, iymon, muhabbat,
+          ota-ona, vatan, sabr va umid haqida yozilgan she'riy satrlar.
+        </p>
+
+        <div class="author">
+          Muallif: <strong>Fozil Usmonqulov</strong>
+        </div>
+
+        <div class="buttons">
+
+          <!-- PDF nomini o'zgartirsangiz shu yerda ham o'zgartiring -->
+
+          <a
+            href="Hayotdan_hayotinggacha_Fozil_Usmonqulov.pdf"
+            download
+            class="btn btn-primary">
+            ↓ Kitobni yuklab olish
+          </a>
+
+          <a
+            href="Hayotdan_hayotinggacha_Fozil_Usmonqulov.pdf"
+            target="_blank"
+            class="btn btn-outline">
+            📖 Kitobni o'qish
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!-- BOOK COVER -->
+
+      <div class="book-wrap reveal">
+
+        <div class="book">
+
+          <div class="book-content">
+
+            <div class="book-small">
+              SHE'RIY TO'PLAM
+            </div>
+
+            <div class="book-title">
+              Hayotdan<br>
+              Hayotinggacha
+            </div>
+
+            <div class="book-author">
+              FOZIL USMONQULOV
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- EXCERPT -->
+
+    <section class="excerpt-section" id="parcha">
+
+      <div class="section-label reveal">
+        Kitobdan
+      </div>
+
+      <h2 class="section-title reveal">
+        Bir necha satr
+      </h2>
+
+      <p class="section-intro reveal">
+        Kitobning dastlabki sahifalaridagi “Mehribon Alloh” she'ridan
+        qisqa parcha.
+      </p>
+
+      <div class="quote-card reveal">
+
+        <blockquote>
+          “Turfa xil qalblarning yolgʻiz egasi,<br>
+          Tanho bilguvchidir har birin nafsi.<br>
+          Jumboq toʻla sirlarni yechadi oʻzi,<br>
+          Mehribon Allohim oʻzing bilguvchi.”
+        </blockquote>
+
+        <div class="quote-source">
+          — “Mehribon Alloh”, Hayotdan Hayotinggacha
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- THEMES -->
+
+    <section id="mavzular">
+
+      <div class="section-label reveal">
+        Kitob ruhi
+      </div>
+
+      <h2 class="section-title reveal">
+        Qaysi mavzular haqida?
+      </h2>
+
+      <p class="section-intro reveal">
+        Kitobdagi she'rlar insonning ichki dunyosi va kundalik hayotidagi
+        turli holatlarni she'riy talqinda yoritadi.
+      </p>
+
+
+      <div class="theme-grid">
+
+        <div class="theme-card reveal">
+          <div class="theme-icon">☪</div>
+          <h3>Iymon</h3>
+          <p>
+            Allohga ishonch, ibodat, halollik va insonning ma'naviy
+            yo'li haqida mulohazalar.
+          </p>
+        </div>
+
+
+        <div class="theme-card reveal">
+          <div class="theme-icon">❤️</div>
+          <h3>Sevgi</h3>
+          <p>
+            Chin sevgi, sog'inch, ikki qalb va insonning yurakdagi
+            kechinmalari.
+          </p>
+        </div>
+
+
+        <div class="theme-card reveal">
+          <div class="theme-icon">👨‍👩‍👦</div>
+          <h3>Oila</h3>
+          <p>
+            Ota-ona, mehr, oilaning qadri va yaqin insonlarga bo'lgan
+            minnatdorlik.
+          </p>
+        </div>
+
+
+        <div class="theme-card reveal">
+          <div class="theme-icon">🌿</div>
+          <h3>Hayot</h3>
+          <p>
+            Foniy dunyo, hayot sinovlari, insonning tanlovi va umr
+            haqida fikrlar.
+          </p>
+        </div>
+
+
+        <div class="theme-card reveal">
+          <div class="theme-icon">🕊</div>
+          <h3>Umid</h3>
+          <p>
+            Qiyinchiliklarga qaramay taslim bo'lmaslik va yaxshi kunlarga
+            ishonch.
+          </p>
+        </div>
+
+
+        <div class="theme-card reveal">
+          <div class="theme-icon">🇺🇿</div>
+          <h3>Vatan</h3>
+          <p>
+            Tug'ilgan yurt, ona zamin, ajdodlar va Vatanni asrash
+            g'oyalari.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- AUTHOR -->
+
+    <section id="muallif">
+
+      <div class="about">
+
+        <div class="author-card reveal">
+
+          <div class="author-symbol">
+            F
+          </div>
+
+        </div>
+
+
+        <div class="about-text reveal">
+
+          <div class="section-label">
+            Muallif
+          </div>
+
+          <h2 class="section-title">
+            Fozil Usmonqulov
+          </h2>
+
+          <p>
+            Fozil Usmonqulov 1996-yil 4-noyabrda Jizzax viloyati,
+            Do'stlik tumani, Manas QFYda tug'ilgan.
+          </p>
+
+          <p>
+            U Jizzax Politexnika Litseyini va keyinchalik Jizzax
+            Politexnika Institutining EEE yo'nalishini bakalavr
+            darajasida tamomlagan.
+          </p>
+
+          <p>
+            “Hayotdan Hayotinggacha” muallifning birinchi kitobi
+            sifatida taqdim etilgan.
+          </p>
+
+          <p class="author-quote">
+            “Har bir satr — qalbdan chiqqan bir fikr,
+            har bir misra — hayotdan olingan bir saboq.”
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- DOWNLOAD -->
+
+    <section id="yuklab-olish">
+
+      <div class="download-box reveal">
+
+        <div class="section-label">
+          To'liq kitob
+        </div>
+
+        <h2 class="section-title">
+          Hayotdan Hayotinggacha
+        </h2>
+
+        <p>
+          Kitobni PDF shaklida yuklab oling yoki brauzer orqali
+          to'liq o'qing.
+        </p>
+
+        <div class="buttons" style="justify-content:center;">
+
+          <a
+            href="Hayotdan_hayotinggacha_Fozil_Usmonqulov.pdf"
+            download
+            class="btn btn-primary">
+            ↓ PDF yuklab olish
+          </a>
+
+          <a
+            href="Hayotdan_hayotinggacha_Fozil_Usmonqulov.pdf"
+            target="_blank"
+            class="btn btn-outline">
+            📖 Brauzerda o'qish
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div>
+      © 2026 <strong>Fozil Usmonqulov</strong>
+    </div>
+
+    <div style="margin-top:7px;">
+      Hayotdan Hayotinggacha · She'riy to'plam
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    // DARK / LIGHT MODE
+
+    const themeBtn = document.getElementById("themeBtn");
+
+    themeBtn.addEventListener("click", () => {
+
+      document.body.classList.toggle("light");
+
+      if (document.body.classList.contains("light")) {
+        themeBtn.textContent = "☀";
+        localStorage.setItem("theme", "light");
+      } else {
+        themeBtn.textContent = "☾";
+        localStorage.setItem("theme", "dark");
+      }
+
+    });
+
+
+    // Saqlangan rejim
+
+    if (localStorage.getItem("theme") === "light") {
+      document.body.classList.add("light");
+      themeBtn.textContent = "☀";
+    }
+
+
+    // SCROLL ANIMATION
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+
+        entries.forEach((entry) => {
+
+          if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+          }
+
+        });
+
+      },
+      {
+        threshold: 0.12
+      }
+    );
+
+
+    document.querySelectorAll(".reveal").forEach((el) => {
+      observer.observe(el);
+    });
+
+  </script>
+
+</body>
+</html>
