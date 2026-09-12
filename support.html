@@ -1,263 +1,107 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ANFKA — Qo‘llab-quvvatlash</title>
-
+    <title>Support - KomilUsmonDev</title>
     <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f6f8;
-            color: #222;
-        }
-
-        .container {
-            max-width: 650px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-
-        .card {
-            background: #fff;
-            padding: 28px;
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        h1 {
-            margin-top: 0;
-            text-align: center;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        label {
-            display: block;
-            margin: 15px 0 7px;
-            font-weight: bold;
-        }
-
-        input,
-        select,
-        textarea {
-            width: 100%;
-            padding: 13px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            font-size: 15px;
-            outline: none;
-        }
-
-        textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        input:focus,
-        select:focus,
-        textarea:focus {
-            border-color: #555;
-        }
-
-        button {
-            width: 100%;
-            margin-top: 22px;
-            padding: 14px;
-            border: none;
-            border-radius: 10px;
-            background: #111;
-            color: white;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        button:hover {
-            opacity: 0.9;
-        }
-
-        .info {
-            margin-top: 20px;
-            padding: 15px;
-            background: #f1f3f5;
-            border-radius: 10px;
-            font-size: 14px;
-            color: #555;
-        }
-
-        .success {
-            display: none;
-            margin-top: 20px;
-            padding: 15px;
-            border-radius: 10px;
-            background: #e8f5e9;
-            color: #2e7d32;
-        }
-
-        .required {
-            color: red;
-        }
+        body { background-color: #000000; color: #ffffff; font-family: monospace; padding: 20px; font-size: 15px; max-width: 600px; margin: auto; }
+        button { background-color: #000000; color: #ffffff; border: 1px solid #555; padding: 10px 20px; margin: 15px 0; cursor: pointer; display: block; font-family: monospace; font-size: 15px; width: 100%; }
+        button:hover { color: #d6ad5c; border-color: #d6ad5c; }
+        form { margin-top: 20px; }
+        label { display: block; margin-top: 15px; color: #d6ad5c; }
+        input, textarea, select { background-color: #000000; color: #ffffff; border: 1px solid #333; padding: 10px; margin-top: 5px; width: 100%; font-family: monospace; box-sizing: border-box; }
+        input:focus, textarea:focus, select:focus { outline: none; border-color: #d6ad5c; }
+        select option { background-color: #000000; color: #ffffff; }
+        #status-msg { margin-top: 15px; display: none; }
+        .info-box { margin-top: 20px; padding: 10px; border: 1px dashed #555; color: #aaa; font-size: 13px; }
+        .lang-switcher { margin-bottom: 20px; }
+        .lang-btn { display: inline-block; width: auto; border: none; padding: 5px 10px; margin: 0; color: #fff; }
     </style>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript"> (function(){ emailjs.init({ publicKey: "L8EVbFKC61KtkIqh5", }); })(); </script>
 </head>
-
 <body>
-
-<div class="container">
-
-    <div class="card">
-
-        <h1>ANFKA qo‘llab-quvvatlash</h1>
-
-        <p class="subtitle">
-            Ilovadan foydalanishda muammo yuzaga kelgan bo‘lsa,
-            quyidagi forma orqali murojaat yuboring.
-        </p>
-
-        <form id="supportForm">
-
-            <label>
-                Ismingiz <span class="required">*</span>
-            </label>
-            <input
-                type="text"
-                id="name"
-                placeholder="Ismingizni kiriting"
-                required
-            >
-
-            <label>
-                Email <span class="required">*</span>
-            </label>
-            <input
-                type="email"
-                id="email"
-                placeholder="example@gmail.com"
-                required
-            >
-
-            <label>
-                ANFKA ID / Foydalanuvchi ID
-            </label>
-            <input
-                type="text"
-                id="userId"
-                placeholder="Agar mavjud bo‘lsa"
-            >
-
-            <label>
-                Murojaat turi <span class="required">*</span>
-            </label>
-
-            <select id="type" required>
-                <option value="">Tanlang</option>
-                <option value="account">Akkaunt muammosi</option>
-                <option value="blocked">Akkaunt bloklangan</option>
-                <option value="appeal">Apellyatsiya</option>
-                <option value="technical">Texnik muammo</option>
-                <option value="other">Boshqa</option>
-            </select>
-
-            <label>
-                Murojaat mavzusi <span class="required">*</span>
-            </label>
-
-            <input
-                type="text"
-                id="subject"
-                placeholder="Muammo haqida qisqacha"
-                required
-            >
-
-            <label>
-                Muammo tafsilotlari <span class="required">*</span>
-            </label>
-
-            <textarea
-                id="message"
-                placeholder="Muammo nima ekanligini batafsil yozing..."
-                required
-            ></textarea>
-
-            <label>
-                Apellyatsiya sababi
-            </label>
-
-            <textarea
-                id="appeal"
-                placeholder="Agar akkauntingiz bloklangan bo‘lsa, nima sababdan blok noto‘g‘ri deb hisoblayotganingizni yozing..."
-            ></textarea>
-
-            <button type="submit">
-                Murojaat yuborish
-            </button>
-
-        </form>
-
-        <div class="success" id="successMessage">
-            Murojaatingiz qabul qilindi. Tez orada siz bilan bog‘lanamiz.
-        </div>
-
-        <div class="info">
-            <strong>Eslatma:</strong><br>
-            Murojaat yuborishda ANFKA akkauntingizga tegishli ma'lumotlarni
-            imkon qadar aniq kiriting. Bu muammoni tezroq tekshirishga yordam beradi.
-        </div>
-
+    <div class="lang-switcher">
+        <button class="lang-btn" onclick="setLanguage('uz')">[ UZ ]</button>
+        <button class="lang-btn" onclick="setLanguage('ru')">[ RU ]</button>
+        <button class="lang-btn" onclick="setLanguage('en')">[ EN ]</button>
     </div>
 
-</div>
+    <p data-i18n="support_title">> Ilovalar yordam markazi</p>
+    <p data-i18n="support_desc">> Barcha dasturlar uchun texnik yordam va murojaatlar tizimi.</p>
+    
+    <form id="support-form">
+        <label data-i18n="name_label">> Ismingiz *</label>
+        <input type="text" id="from_name" required placeholder="Ismingizni kiriting" data-i18n="placeholder_name">
+        
+        <label data-i18n="email_label">> Email *</label>
+        <input type="email" id="from_email" required placeholder="example@gmail.com" data-i18n="placeholder_email">
 
-<script>
-    document.getElementById("supportForm").addEventListener("submit", function(event) {
-        event.preventDefault();
+        <label data-i18n="app_name_label">> Qaysi dastur uchun? *</label>
+        <input type="text" id="app_name" required placeholder="Masalan: Anfka, MarketManas..." data-i18n="placeholder_app">
 
-        const name = document.getElementById("name").value.trim();
-        const email = document.getElementById("email").value.trim();
-        const type = document.getElementById("type").value;
-        const subject = document.getElementById("subject").value.trim();
-        const message = document.getElementById("message").value.trim();
+        <label data-i18n="user_id_label">> Foydalanuvchi ID (Agar mavjud bo'lsa)</label>
+        <input type="text" id="user_id" placeholder="ID yoki Username" data-i18n="placeholder_id">
 
-        if (!name || !email || !type || !subject || !message) {
-            alert("Iltimos, barcha majburiy maydonlarni to‘ldiring.");
-            return;
-        }
+        <label data-i18n="type_label">> Murojaat turi *</label>
+        <select id="support_type" required>
+            <option value="Texnik muammo">Texnik muammo</option>
+            <option value="Akkaunt muammosi">Akkaunt muammosi</option>
+            <option value="Blok / Apellyatsiya">Blok / Apellyatsiya</option>
+            <option value="Taklif">Taklif</option>
+        </select>
 
-        /*
-         * Bu yerga backend API manzilini qo‘shish kerak.
-         *
-         * Masalan:
-         *
-         * fetch("https://sizning-domeningiz.uz/api/support", {
-         *     method: "POST",
-         *     headers: {
-         *         "Content-Type": "application/json"
-         *     },
-         *     body: JSON.stringify({
-         *         name: name,
-         *         email: email,
-         *         userId: document.getElementById("userId").value,
-         *         type: type,
-         *         subject: subject,
-         *         message: message,
-         *         appeal: document.getElementById("appeal").value
-         *     })
-         * });
-         */
+        <label data-i18n="subject_label">> Murojaat mavzusi *</label>
+        <input type="text" id="subject" required placeholder="Muammo haqida qisqacha" data-i18n="placeholder_subject">
+        
+        <label data-i18n="details_label">> Tafsilotlar *</label>
+        <textarea id="message" rows="5" required placeholder="Batafsil yozib qoldiring..." data-i18n="placeholder_details"></textarea>
 
-        document.getElementById("supportForm").style.display = "none";
-        document.getElementById("successMessage").style.display = "block";
-    });
-</script>
+        <label data-i18n="appeal_label">> Apellyatsiya sababi (Faqat bloklanganlar uchun)</label>
+        <textarea id="appeal_reason" rows="3" placeholder="Nima sababdan blok noto'g'ri deb hisoblaysiz?" data-i18n="placeholder_appeal"></textarea>
+        
+        <button type="submit" id="submit-btn" data-i18n="send_btn">> Murojaatni yuborish</button>
+    </form>
 
+    <p id="status-msg"></p>
+    <div class="info-box" data-i18n="support_info">- Tizim avtomatik ravishda so'rovingizni tekshiradi. Javob emailga yuboriladi.</div>
+    <br><button onclick="window.location.href='index.html'" style="border: none;" data-i18n="back_home">> Bosh sahifaga qaytish</button>
+
+    <script src="lang.js"></script>
+    <script>
+        document.getElementById('support-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const statusMsg = document.getElementById('status-msg');
+            const submitBtn = document.getElementById('submit-btn');
+            
+            const currentLang = localStorage.getItem('app_lang') || 'uz';
+            submitBtn.innerText = translations[currentLang].sending || '> Yuborilmoqda...';
+            
+            const params = {
+                from_name: document.getElementById('from_name').value,
+                from_email: document.getElementById('from_email').value,
+                app_name: document.getElementById('app_name').value,
+                user_id: document.getElementById('user_id').value || "-",
+                support_type: document.getElementById('support_type').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value,
+                appeal_reason: document.getElementById('appeal_reason').value || "-",
+                time: new Date().toLocaleString()
+            };
+            
+            emailjs.send('service_38spzgp', 'template_7r4r11d', params)
+                .then(() => {
+                    statusMsg.style.display = 'block'; statusMsg.style.color = '#00ff00';
+                    statusMsg.innerText = translations[currentLang].success_msg || 'Success!';
+                    submitBtn.innerText = translations[currentLang].send_btn;
+                    document.getElementById('support-form').reset();
+                }, (error) => {
+                    statusMsg.style.display = 'block'; statusMsg.style.color = '#ff5555';
+                    statusMsg.innerText = translations[currentLang].error_msg + (error.text || '');
+                    submitBtn.innerText = translations[currentLang].send_btn;
+                });
+        });
+    </script>
 </body>
 </html>
