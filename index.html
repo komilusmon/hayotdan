@@ -11,21 +11,36 @@
             font-family: monospace; 
             padding: 20px; 
             font-size: 15px;
+            /* Butun kontentni ekranning o'rtasiga joylash uchun */
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            min-height: 100vh;
         }
+        
+        /* Barcha elementlarni o'zida jamlovchi va markazlashtiruvchi quti */
+        .container {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Barcha elementlarni o'rtaga joylaydi */
+            text-align: center; /* Matnlarni o'rtaga tekislaydi */
+        }
+
         button { 
             background-color: #000000; 
             color: #d6ad5c; 
             border: 1px solid #333; 
             border-radius: 5px; 
             padding: 10px 20px; 
-            margin: 5px 0; 
+            margin: 5px auto; /* Tugmalarni o'rtada ushlab turadi */
             cursor: pointer; 
             display: block; 
             text-align: center; 
             font-family: monospace; 
             font-size: 15px; 
             width: 100%; 
-            max-width: 400px; 
         }
         button:hover { 
             color: #ffffff; 
@@ -40,9 +55,9 @@
         .top-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center; /* Rasm va tillar bir chiziqda turishi uchun */
             margin-bottom: 20px;
-            max-width: 400px; /* Tugmalar kengligi bilan bir xil qilish */
+            width: 100%;
         }
 
         .lang-switcher { 
@@ -68,40 +83,45 @@
             border: 2px solid #d6ad5c; /* Tillarang ramka */
             box-shadow: 0 0 10px rgba(214, 173, 92, 0.3);
         }
+        
+        /* Matnlar uchun bo'shliqlar */
+        p { margin: 5px 0; }
     </style>
 </head>
 <body>
     
-    <!-- Yuqori qism (Tillar va Rasm) -->
-    <div class="top-header">
-        <div class="lang-switcher">
-            <button class="lang-btn" onclick="setLanguage('uz')">[ UZ ]</button>
-            <button class="lang-btn" onclick="setLanguage('ru')">[ RU ]</button>
-            <button class="lang-btn" onclick="setLanguage('en')">[ EN ]</button>
+    <div class="container">
+        <!-- Yuqori qism (Tillar va Rasm) -->
+        <div class="top-header">
+            <div class="lang-switcher">
+                <button class="lang-btn" onclick="setLanguage('uz')">[ UZ ]</button>
+                <button class="lang-btn" onclick="setLanguage('ru')">[ RU ]</button>
+                <button class="lang-btn" onclick="setLanguage('en')">[ EN ]</button>
+            </div>
+            
+            <!-- Sizning rasmingiz -->
+            <img src="komilusmondev.jpg" alt="KomilUsmonDev" class="profile-pic">
         </div>
-        
-        <!-- Sizning rasmingiz -->
-        <img src="komilusmondev.jpg" alt="KomilUsmonDev" class="profile-pic">
-    </div>
 
-    <!-- Asosiy matnlar -->
-    <p data-i18n="sys_init">> Tizim ishga tushirilmoqda...</p>
-    <p data-i18n="welcome">> KomilUsmonDev terminaliga xush kelibsiz.</p>
-    <br>
-    <p data-i18n="about_1">- Salom, men Komil Usmonqulov.</p>
-    <p data-i18n="about_2">- 1-yillik tajribaga ega dasturchiman.</p>
-    <p data-i18n="about_3">- Android (Kotlin), Web, Python va 3D dizayn yo'nalishlarida ishlayman.</p>
-    
-    <p class="header-text" data-i18n="main_menu">--- ASOSIY MENYU ---</p>
-    <button onclick="window.location.href='projects.html'" data-i18n="btn_projects">[1] Loyihalar va Ilovalar</button>
-    <button onclick="window.location.href='contact.html'" data-i18n="btn_contact">[2] Men bilan bog'lanish (EmailJS)</button>
-    <button onclick="window.location.href='support.html'" data-i18n="btn_support">[3] Ilovalar yordam markazi</button>
-    <button onclick="window.location.href='privacy.html'" data-i18n="btn_privacy">[4] Maxfiylik siyosati</button>
-    
-    <p class="header-text" data-i18n="social_links">--- TARMOQLAR ---</p>
-    <button onclick="window.open('https://github.com/komilusmon', '_blank')">> GitHub</button>
-    <button onclick="window.open('https://youtube.com/@komilusmondev', '_blank')">> YouTube</button>
-    <button onclick="window.open('https://t.me/komilusmondev', '_blank')">> Telegram</button>
+        <!-- Asosiy matnlar -->
+        <p data-i18n="sys_init">> Tizim ishga tushirilmoqda...</p>
+        <p data-i18n="welcome">> KomilUsmonDev terminaliga xush kelibsiz.</p>
+        <br>
+        <p data-i18n="about_1">- Salom, men Komil Usmonqulov.</p>
+        <p data-i18n="about_2">- 1-yillik tajribaga ega dasturchiman.</p>
+        <p data-i18n="about_3">- Android (Kotlin), Web, Python va 3D dizayn yo'nalishlarida ishlayman.</p>
+        
+        <p class="header-text" data-i18n="main_menu">--- ASOSIY MENYU ---</p>
+        <button onclick="window.location.href='projects.html'" data-i18n="btn_projects">[1] Loyihalar va Ilovalar</button>
+        <button onclick="window.location.href='contact.html'" data-i18n="btn_contact">[2] Men bilan bog'lanish (EmailJS)</button>
+        <button onclick="window.location.href='support.html'" data-i18n="btn_support">[3] Ilovalar yordam markazi</button>
+        <button onclick="window.location.href='privacy.html'" data-i18n="btn_privacy">[4] Maxfiylik siyosati</button>
+        
+        <p class="header-text" data-i18n="social_links">--- TARMOQLAR ---</p>
+        <button onclick="window.open('https://github.com/komilusmon', '_blank')">> GitHub</button>
+        <button onclick="window.open('https://youtube.com/@komilusmondev', '_blank')">> YouTube</button>
+        <button onclick="window.open('https://t.me/komilusmondev', '_blank')">> Telegram</button>
+    </div>
 
     <script src="lang.js"></script>
 </body>
