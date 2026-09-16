@@ -1,0 +1,17 @@
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls",
+      "delegate_permission/common.get_login_creds"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "uz.anfka.hayotdanhayotgacha",
+      "sha256_cert_fingerprints": [
+        "01:08:12:5B:B4:93:8F:AD:BF:4E:8D:AF:76:C2:8D:F5:64:6F:72:D0:EA:6C:F1:22:B8:F5:70:79:24:92:19:A2",
+        "26:BA:66:3C:C1:20:36:68:12:BC:59:67:44:BC:85:3D:0F:02:24:AA:29:03:C5:3B:BB:EF:F3:08:DA:20:1C:32",
+        "09:EC:71:01:F7:EA:5A:1D:82:1A:C3:AC:EB:63:DD:CE:57:F2:E8:CB:5C:81:7A:40:24:71:A3:3A:6B:05:BF:CC"
+      ]
+    }
+  }
+]
