@@ -204,13 +204,23 @@
       transform: translateY(-3px);
     }
 
-    .app-download-btn {
-      border-color: rgba(112,139,112,.45);
+    .google-play-badge {
+      display: inline-flex;
+      align-self: center;
+      line-height: 0;
+      border-radius: 8px;
+      transition: .3s;
     }
 
-    .app-download-btn:hover {
-      border-color: rgba(112,139,112,.75);
-      box-shadow: 0 10px 30px rgba(112,139,112,.14);
+    .google-play-badge img {
+      display: block;
+      height: 52px;
+      width: auto;
+    }
+
+    .google-play-badge:hover {
+      transform: translateY(-3px);
+      filter: brightness(1.12);
     }
 
     /* BOOK */
@@ -679,8 +689,8 @@
             href="https://play.google.com/store/apps/details?id=uz.anfka.hayotdanhayotgacha"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn btn-outline app-download-btn">
-            📱 Ilovani yuklab olish
+            class="google-play-badge">
+            <img src="google-play-badge.png" width="175" height="52" alt="Get it on Google Play">
           </a>
 
         </div>
@@ -929,8 +939,8 @@
             href="https://play.google.com/store/apps/details?id=uz.anfka.hayotdanhayotgacha"
             target="_blank"
             rel="noopener noreferrer"
-            class="btn btn-outline app-download-btn">
-            📱 Android ilovasini yuklab olish
+            class="google-play-badge">
+            <img src="google-play-badge.png" width="175" height="52" alt="Get it on Google Play">
           </a>
 
         </div>
