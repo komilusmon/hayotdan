@@ -167,49 +167,62 @@
     .buttons {
       display: flex;
       flex-wrap: wrap;
+      align-items: center;
       gap: 13px;
     }
 
-    .btn {
-      padding: 14px 23px;
-      border-radius: 9px;
-      font-size: 14px;
-      font-weight: 600;
-      transition: .3s;
+    .book-badge,
+    .google-play-badge {
       display: inline-flex;
       align-items: center;
+      align-self: center;
+      height: 52px;
+      border-radius: 5px;
+      transition: transform .3s, filter .3s;
+    }
+
+    .book-badge {
       gap: 8px;
+      padding: 0 14px 0 9px;
+      background: #070604;
+      border: 1px solid #a3a3a2;
+      color: #fff;
+      line-height: 1;
       cursor: pointer;
     }
 
-    .btn-primary {
-      background: var(--gold);
-      color: #15120b;
+    .book-badge-icon {
+      display: block;
+      width: 32px;
+      height: 32px;
+      flex: 0 0 auto;
     }
 
-    .btn-primary:hover {
-      background: var(--gold-light);
-      transform: translateY(-3px);
-      box-shadow: 0 10px 30px rgba(214,173,92,.18);
+    .book-badge-copy {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3px;
     }
 
-    .btn-outline {
-      border: 1px solid rgba(255,255,255,.15);
-      background: rgba(255,255,255,.04);
-      color: white;
+    .book-badge-kicker {
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+      color: #fff;
     }
 
-    .btn-outline:hover {
-      background: rgba(255,255,255,.08);
-      transform: translateY(-3px);
+    .book-badge-title {
+      font-size: 16px;
+      font-weight: 500;
+      letter-spacing: -.02em;
+      color: #fff;
+      white-space: nowrap;
     }
 
     .google-play-badge {
-      display: inline-flex;
-      align-self: center;
       line-height: 0;
-      border-radius: 8px;
-      transition: .3s;
     }
 
     .google-play-badge img {
@@ -218,9 +231,16 @@
       width: auto;
     }
 
+    .book-badge:hover,
     .google-play-badge:hover {
       transform: translateY(-3px);
       filter: brightness(1.12);
+    }
+
+    .book-badge:focus-visible,
+    .google-play-badge:focus-visible {
+      outline: 2px solid var(--gold-light);
+      outline-offset: 3px;
     }
 
     /* BOOK */
@@ -522,8 +542,7 @@
       background: rgba(245,241,231,.82);
     }
 
-    body.light .nav-links a,
-    body.light .btn-outline {
+    body.light .nav-links a {
       color: #242923;
     }
 
@@ -674,15 +693,34 @@
           <a
             href="Hayotdan_hayotinggacha_Fozil_Usmonqulov.pdf"
             download
-            class="btn btn-primary">
-            ↓ Kitobni yuklab olish
+            class="book-badge"
+            aria-label="Kitobni yuklab olish">
+            <svg class="book-badge-icon" viewBox="0 0 32 32" aria-hidden="true">
+              <path fill="#f7f4ec" d="M8.2 3.6h9.2L24 10.1V26.6c0 1-.8 1.8-1.8 1.8H8.2c-1 0-1.8-.8-1.8-1.8V5.4c0-1 .8-1.8 1.8-1.8z"/>
+              <path fill="#d6ad5c" d="M17.4 3.6v6.5H24z"/>
+              <path fill="none" stroke="#1c180f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M13.4 16.8v7.2m0 0-2.7-2.6m2.7 2.6 2.7-2.6"/>
+            </svg>
+            <span class="book-badge-copy">
+              <span class="book-badge-kicker">PDF</span>
+              <span class="book-badge-title">Yuklab olish</span>
+            </span>
           </a>
 
           <a
             href="Hayotdan_hayotinggacha_Fozil_Usmonqulov.pdf"
             target="_blank"
-            class="btn btn-outline">
-            📖 Kitobni o'qish
+            rel="noopener noreferrer"
+            class="book-badge"
+            aria-label="Kitobni o'qish">
+            <svg class="book-badge-icon" viewBox="0 0 32 32" aria-hidden="true">
+              <path fill="#f7f4ec" d="M4.6 8c2.9-1.8 5.6-1.4 9.6 1.2 4-2.6 6.7-3 9.6-1.2v15.6c-2.9-1.8-5.6-1.4-9.6 1.2-4-2.6-6.7-3-9.6-1.2V8z"/>
+              <path fill="#d6ad5c" d="M14.2 9.6h1.2v13.6h-1.2z"/>
+              <path fill="#e7d3a2" d="M8 12.4h5.1v1.05H8zm0 2.55h5.1v1.05H8zm0 2.55h5.1v1.05H8zM16.8 12.4h5.2v1.05h-5.2zm0 2.55h5.2v1.05h-5.2zm0 2.55h5.2v1.05h-5.2z"/>
+            </svg>
+            <span class="book-badge-copy">
+              <span class="book-badge-kicker">Brauzerda</span>
+              <span class="book-badge-title">Kitobni o'qish</span>
+            </span>
           </a>
 
           <a
@@ -924,15 +962,34 @@
           <a
             href="Hayotdan_hayotinggacha_Fozil_Usmonqulov.pdf"
             download
-            class="btn btn-primary">
-            ↓ PDF yuklab olish
+            class="book-badge"
+            aria-label="PDF yuklab olish">
+            <svg class="book-badge-icon" viewBox="0 0 32 32" aria-hidden="true">
+              <path fill="#f7f4ec" d="M8.2 3.6h9.2L24 10.1V26.6c0 1-.8 1.8-1.8 1.8H8.2c-1 0-1.8-.8-1.8-1.8V5.4c0-1 .8-1.8 1.8-1.8z"/>
+              <path fill="#d6ad5c" d="M17.4 3.6v6.5H24z"/>
+              <path fill="none" stroke="#1c180f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M13.4 16.8v7.2m0 0-2.7-2.6m2.7 2.6 2.7-2.6"/>
+            </svg>
+            <span class="book-badge-copy">
+              <span class="book-badge-kicker">PDF</span>
+              <span class="book-badge-title">Yuklab olish</span>
+            </span>
           </a>
 
           <a
             href="Hayotdan_hayotinggacha_Fozil_Usmonqulov.pdf"
             target="_blank"
-            class="btn btn-outline">
-            📖 Brauzerda o'qish
+            rel="noopener noreferrer"
+            class="book-badge"
+            aria-label="Brauzerda o'qish">
+            <svg class="book-badge-icon" viewBox="0 0 32 32" aria-hidden="true">
+              <path fill="#f7f4ec" d="M4.6 8c2.9-1.8 5.6-1.4 9.6 1.2 4-2.6 6.7-3 9.6-1.2v15.6c-2.9-1.8-5.6-1.4-9.6 1.2-4-2.6-6.7-3-9.6-1.2V8z"/>
+              <path fill="#d6ad5c" d="M14.2 9.6h1.2v13.6h-1.2z"/>
+              <path fill="#e7d3a2" d="M8 12.4h5.1v1.05H8zm0 2.55h5.1v1.05H8zm0 2.55h5.1v1.05H8zM16.8 12.4h5.2v1.05h-5.2zm0 2.55h5.2v1.05h-5.2zm0 2.55h5.2v1.05h-5.2z"/>
+            </svg>
+            <span class="book-badge-copy">
+              <span class="book-badge-kicker">Brauzerda</span>
+              <span class="book-badge-title">Kitobni o'qish</span>
+            </span>
           </a>
 
           <a
